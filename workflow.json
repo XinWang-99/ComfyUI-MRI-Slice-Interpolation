@@ -1,0 +1,254 @@
+{
+  "last_node_id": 21,
+  "last_link_id": 25,
+  "nodes": [
+    {
+      "id": 10,
+      "type": "LoadNifti",
+      "pos": [
+        283,
+        307
+      ],
+      "size": {
+        "0": 210,
+        "1": 122
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            18
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "SOURCE",
+          "type": "SOURCE",
+          "links": [
+            25
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "FILENAME",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadNifti"
+      },
+      "widgets_values": [
+        "axi.nii.gz",
+        "image"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "SaveNifti",
+      "pos": [
+        1209,
+        641
+      ],
+      "size": {
+        "0": 315,
+        "1": 126
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 24,
+          "slot_index": 0
+        },
+        {
+          "name": "source",
+          "type": "SOURCE",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveNifti"
+      },
+      "widgets_values": [
+        2,
+        "axi",
+        "SR"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "SliceInterpolation",
+      "pos": [
+        722,
+        237
+      ],
+      "size": {
+        "0": 315,
+        "1": 126
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            20,
+            24
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "ratio",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SliceInterpolation"
+      },
+      "widgets_values": [
+        "SAINR",
+        2,
+        0
+      ]
+    },
+    {
+      "id": 17,
+      "type": "To_4D_tensor",
+      "pos": [
+        1140,
+        249
+      ],
+      "size": {
+        "0": 210,
+        "1": 26
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            19
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "To_4D_tensor"
+      }
+    },
+    {
+      "id": 18,
+      "type": "PreviewImage",
+      "pos": [
+        1470,
+        235
+      ],
+      "size": {
+        "0": 210,
+        "1": 246
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 19
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    }
+  ],
+  "links": [
+    [
+      18,
+      10,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      17,
+      0,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      20,
+      16,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      24,
+      16,
+      0,
+      21,
+      0,
+      "IMAGE"
+    ],
+    [
+      25,
+      10,
+      1,
+      21,
+      1,
+      "SOURCE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
