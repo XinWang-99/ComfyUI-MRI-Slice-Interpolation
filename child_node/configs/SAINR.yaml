@@ -1,0 +1,10 @@
+model:
+  name: custom_nodes.child_node.super_resolution.model.SAINR
+  args:
+    layerType: FBLA
+    dilation: 2
+    add_res: true
+    add_NLSA: False
+    add_branch: False
+
+

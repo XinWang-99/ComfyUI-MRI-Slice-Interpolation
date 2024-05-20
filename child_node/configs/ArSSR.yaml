@@ -1,0 +1,8 @@
+model:
+  name: custom_nodes.child_node.super_resolution.model.ArSSR
+  args:
+    local_ensemble: false
+    feat_unfold: false
+    cell_decode: false
+
+

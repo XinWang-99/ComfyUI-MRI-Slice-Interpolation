@@ -1,0 +1,11 @@
+model:
+  name: custom_nodes.child_node.super_resolution.edsr.make_edsr_baseline
+  args:
+    n_resblocks: 8
+    n_feats: 64
+    res_scale: 1
+    add_tail: true
+     
+
+
+

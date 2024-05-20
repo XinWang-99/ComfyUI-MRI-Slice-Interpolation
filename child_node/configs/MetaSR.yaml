@@ -1,0 +1,6 @@
+model:
+  name: custom_nodes.child_node.super_resolution.metasr.MetaSR
+  args:
+    kernel_size: 3
+
+
